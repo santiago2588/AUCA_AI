@@ -19,7 +19,7 @@ hide_menu_style = """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 from PIL import Image
-image = Image.open('Resources/logo_Pungo.png')
+image = Image.open('Resources/AUCA.png')
 st.image(image)
 
 st.write("# DIGITALIZATION WITH POSITIVE IMPACT")
