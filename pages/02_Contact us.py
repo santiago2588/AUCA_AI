@@ -12,10 +12,10 @@ hide_menu_style = """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 from PIL import Image
-image = Image.open('Resources/logo_Pungo.png')
+image = Image.open('Resources/AUCA.png')
 st.image(image)
 
-st.markdown("# Contact")
+st.markdown("# Contact us")
 
 st.write("### On this occasion, we have shown you a demo of AUCA. However, there remain immense opportunities to reduce your emissions and energy costs by using the PRO version.")
 
