@@ -111,7 +111,7 @@ fuel_energy.columns=['Contenido energia MJ']
 
 st.markdown("## Results")
 
-st.button('Show results')
+if st.button('Show results'):
 
     with st.expander("Emisiones y costos totales",expanded=True):
         results=pd.concat([date,process_name,equipment_name,fuel_name,co2,scope,cost,fuel_energy],axis='columns')
