@@ -17,14 +17,14 @@ st.set_page_config(layout="wide",page_title="AUCA",page_icon="🌿")
 # st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 from PIL import Image
-image = Image.open('Resources/logo_Pungo.png')
+image = Image.open('Resources/AUCA.png')
 st.image(image)
 
 #Instrucciones
-st.markdown("# AUCA: The Net-Zero copilot for industrial SMEs")
+st.markdown("# The Net-Zero copilot for industrial SMEs")
 
-st.write("Esta aplicacion presenta los resultados al procesar la base de datos alojada en Google Sheets.")
-st.link_button(label='Accede a la base de datos',url='https://docs.google.com/spreadsheets/d/1FB-lPd8usv_XpFNSm0t4W6C7ogdcHIO1FuJZ2Dmvm_4/edit#gid=1930401626')
+st.write("This example presents the results when processing the database hosted in Google Sheets.")
+st.link_button(label='Access the database',url='https://docs.google.com/spreadsheets/d/1FB-lPd8usv_XpFNSm0t4W6C7ogdcHIO1FuJZ2Dmvm_4/edit#gid=1930401626')
 
 url="https://docs.google.com/spreadsheets/d/1FB-lPd8usv_XpFNSm0t4W6C7ogdcHIO1FuJZ2Dmvm_4/edit?usp=sharing"
 
