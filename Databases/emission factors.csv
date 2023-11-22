@@ -1,0 +1,74 @@
+﻿fuel_name,consumption_unit,heat_content,unit_heat_content,emission_factor,unit_emission_factor,scope,fuel_type
+Mixed Coal (Commercial Sector),short ton,21.39,mmBtu per short ton,95.002,kgCO2e/mmBtu,1_combustion_fija,Solid
+Mixed Coal (Electric Power Sector),short ton,19.73,mmBtu per short ton,96.252,kgCO2e/mmBtu,1_combustion_fija,Solid
+Mixed Coal (Industrial Sector),short ton,22.35,mmBtu per short ton,95.402,kgCO2e/mmBtu,1_combustion_fija,Solid
+Coal Coke,short ton,24.8,mmBtu per short ton,114.402,kgCO2e/mmBtu,1_combustion_fija,Solid
+Municipal Solid Waste,short ton,9.95,mmBtu per short ton,92.709,kgCO2e/mmBtu,1_combustion_fija,Solid
+Petroleum Coke (Solid),short ton,30,mmBtu per short ton,104.419,kgCO2e/mmBtu,1_combustion_fija,Solid
+Plastics,short ton,38,mmBtu per short ton,77.009,kgCO2e/mmBtu,1_combustion_fija,Solid
+Tires,short ton,28,mmBtu per short ton,87.979,kgCO2e/mmBtu,1_combustion_fija,Solid
+Agricultural Byproducts,short ton,8.25,mmBtu per short ton,2.009,kgCO2e/mmBtu,1_combustion_fija,Solid
+Solid Byproducts,short ton,10.39,mmBtu per short ton,2.009,kgCO2e/mmBtu,1_combustion_fija,Solid
+Wood and Wood Residuals,short ton,17.48,mmBtu per short ton,1.1556,kgCO2e/mmBtu,1_combustion_fija,Solid
+Natural Gas,scf,0.001026,mmBtu per scf,53.1145,kgCO2e/mmBtu,1_combustion_fija,Gas
+Blast Furnace Gas,scf,0.000092,mmBtu per scf,274.347116,kgCO2e/mmBtu,1_combustion_fija,Gas
+Fuel Gas,scf,0.001388,mmBtu per scf,59.243,kgCO2e/mmBtu,1_combustion_fija,Gas
+Propane Gas,scf,0.002516,mmBtu per scf,61.703,kgCO2e/mmBtu,1_combustion_fija,Gas
+Landfill Gas,scf,0.000485,mmBtu per scf,0.25655,kgCO2e/mmBtu,1_combustion_fija,Gas
+Other Biomass Gases,scf,0.000655,mmBtu per scf,0.25655,kgCO2e/mmBtu,1_combustion_fija,Gas
+Asphalt,gallon,0.158,mmBtu per gallon,75.603,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Aviation Gasoline,gallon,0.12,mmBtu per gallon,69.493,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Butane,gallon,0.103,mmBtu per gallon,65.013,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Crude Oil,gallon,0.138,mmBtu per gallon,74.783,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Distillate Fuel Oil No. 1,gallon,0.139,mmBtu per gallon,73.493,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Distillate Fuel Oil No. 2,gallon,0.138,mmBtu per gallon,74.203,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Distillate Fuel Oil No. 4,gallon,0.146,mmBtu per gallon,75.283,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Ethane,gallon,0.068,mmBtu per gallon,59.843,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Heavy Gas Oils,gallon,0.148,mmBtu per gallon,75.163,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Isobutane,gallon,0.099,mmBtu per gallon,65.183,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Kerosene,gallon,0.135,mmBtu per gallon,75.443,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Kerosene-Type Jet Fuel,gallon,0.135,mmBtu per gallon,72.463,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Liquefied Petroleum Gases (LPG),gallon,0.092,mmBtu per gallon,61.953,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Lubricants,gallon,0.144,mmBtu per gallon,74.513,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Motor Gasoline,gallon,0.125,mmBtu per gallon,70.463,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Naphtha (<401 deg F),gallon,0.125,mmBtu per gallon,68.263,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Natural Gasoline,gallon,0.11,mmBtu per gallon,67.123,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Other Oil (>401 deg F),gallon,0.139,mmBtu per gallon,76.463,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Propane,gallon,0.091,mmBtu per gallon,63.113,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Residual Fuel Oil No. 5,gallon,0.14,mmBtu per gallon,73.173,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Residual Fuel Oil No. 6,gallon,0.15,mmBtu per gallon,75.343,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Used Oil,gallon,0.138,mmBtu per gallon,74.243,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Biodiesel (100%),gallon,0.128,mmBtu per gallon,0.05995,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Ethanol (100%),gallon,0.084,mmBtu per gallon,0.05995,kgCO2e/mmBtu,1_combustion_fija,Liquid
+Electricity - Mobile - Electric Vehicle,kWh,1,0,0,kgCO2e/kWh,1_combustion_movil,Electric
+Motor Gasoline - Gasoline Passenger Cars,gallon,1,0,8.812,kgCO2e/gal (US),1_combustion_movil,Liquid
+"Motor Gasoline - Gasoline Light-duty Trucks (Vans, Pickup Trucks, SUVs)",gallon,1,0,8.816,kgCO2e/gal (US),1_combustion_movil,Liquid
+Motor Gasoline - Gasoline Heavy-duty Vehicles,gallon,1,0,8.819,kgCO2e/gal (US),1_combustion_movil,Liquid
+Diesel Fuel - Diesel Passenger Cars,gallon,1,0,10.216,kgCO2e/gal (US),1_combustion_movil,Liquid
+Diesel Fuel - Diesel Light-duty Trucks,gallon,1,0,10.217,kgCO2e/gal (US),1_combustion_movil,Liquid
+Diesel Fuel - Diesel Medium- and Heavy-duty Vehicles,gallon,1,0,10.222,kgCO2e/gal (US),1_combustion_movil,Liquid
+Biodiesel (100%) - Biodiesel Passenger Cars,gallon,1,0,0.006,kgCO2e/gal (US),1_combustion_movil,Liquid
+Biodiesel (100%) - Biodiesel Light-duty Vehicles,gallon,1,0,0.005,kgCO2e/gal (US),1_combustion_movil,Liquid
+Biodiesel (100%) - Biodiesel Medium- and Heavy-duty Vehicles,gallon,1,0,0.013,kgCO2e/gal (US),1_combustion_movil,Liquid
+Compressed Natural Gas - CNG Light-duty Vehicles,scf,1,0,4.514,kgCO2e/scf,1_combustion_movil,Gas
+Compressed Natural Gas - CNG Medium- and Heavy-duty Vehicles,scf,1,0,7.084,kgCO2e/scf,1_combustion_movil,Gas
+Ethanol (100%) - Ethanol Light-duty Vehicles,gallon,1,0,0.313,kgCO2e/gal (US),1_combustion_movil,Liquid
+Ethanol (100%) - Ethanol Medium- and Heavy-duty Vehicles,gallon,1,0,0.457,kgCO2e/gal (US),1_combustion_movil,Liquid
+Motor Gasoline - Hybrid (Gasoline) Passenger Cars,gallon,1,0,8.825,kgCO2e/gal (US),1_combustion_movil,Liquid
+Motor Gasoline - Gasoline Agricultural Equipment,gallon,1,0,8.874,kgCO2e/gal (US),1_combustion_movil,Liquid
+Diesel Fuel - Diesel Agricultural Equipment,gallon,1,0,10.319,kgCO2e/gal (US),1_combustion_movil,Liquid
+Motor Gasoline - Gasoline Ships and Boats,gallon,1,0,8.856,kgCO2e/gal (US),1_combustion_movil,Liquid
+Diesel Fuel - Diesel Ships and Boats,gallon,1,0,10.331,kgCO2e/gal (US),1_combustion_movil,Liquid
+Jet Fuel - Jet Fuel Aircraft,gallon,1,0,9.83,kgCO2e/gal (US),1_combustion_movil,Liquid
+Aviation Gasoline - Aviation Gasoline Aircraft,gallon,1,0,8.537,kgCO2e/gal (US),1_combustion_movil,Liquid
+Motor Gasoline - Gasoline Motorcycles,gallon,1,0,8.966,kgCO2e/gal (US),1_combustion_movil,Liquid
+Motor Gasoline - Other Gasoline Non-Road Vehicles,gallon,1,0,8.852,kgCO2e/gal (US),1_combustion_movil,Liquid
+Diesel Fuel - Other Diesel Non-Road Vehicles,gallon,1,0,10.295,kgCO2e/gal (US),1_combustion_movil,Liquid
+Biodiesel (100%) - Biodiesel Medium- and Heavy-duty Vehicles,gallon,1,0,0.009,kgCO2e/gal (US),1_combustion_movil,Liquid
+"Electricity, at supply, Ecuador 2018",kWh,1,0,0.1586,kg CO2 eq/kWh,2_electricidad,Electricity
+"Electricity, generation at power plant, Fuel Oil in Internal Combustion Engine (FO-ICE)",kWh,1,0,0.781,kg CO2 eq/kWh,2_electricidad,Electricity
+"Electricity, generation at power plant, Fuel Oil in Steam Turbine (FO-SP)",kWh,1,0,0.9508,kg CO2 eq/kWh,2_electricidad,Electricity
+"Electricity, generation at power plant, Natural Gas in Gas Turbine (NG-GT)",kWh,1,0,0.6829,kg CO2 eq/kWh,2_electricidad,Electricity
+"Electricity, generation at power plant, Run-of-River Hydroelectricity (ROR)",kWh,1,0,0.0029,kg CO2 eq/kWh,2_electricidad,Electricity
+"Electricity, generation at power plant, Diesel in Gas Turbine (D-GT)",kWh,1,0,0.9518,kg CO2 eq/kWh,2_electricidad,Electricity
+"Electricity, generation at power plant, Dam Hydroelectricity (H-D)",kWh,1,0,0.0085,kg CO2 eq/kWh,2_electricidad,Electricity
