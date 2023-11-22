@@ -22,7 +22,7 @@ st.write("### On this occasion, we have shown you a demo of AUCA. However, there
 
 st.write("### If you want to know how you can achieve these benefits, schedule an appointment to guide you through the process and receive advice from our experts.")
 
-st.button('Schedule an appointment',link='https://calendly.com/pungo_szapata/meeting')
+st.link_button(label='Schedule an appointment',url='https://calendly.com/pungo_szapata/meeting')
 
 # contact_form = """
 # <form action="https://formsubmit.co/zapaz.consultores@gmail.com" method="POST">
