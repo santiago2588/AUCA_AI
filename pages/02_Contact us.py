@@ -15,11 +15,14 @@ from PIL import Image
 image = Image.open('Resources/logo_Pungo.png')
 st.image(image)
 
-st.markdown("# Contacto")
+st.markdown("# Contact")
 
-st.write("### En esta ocasión, te hemos presentado una demostracion del módulo de Cálculos de AUCA. Sin embargo, quedan inmensas oportunidades para disminuir tus emisiones y costos energéticos al usar la version PRO.")
+st.write("### On this occasion, we have shown you a demo of AUCA. However, there remain immense opportunities to reduce your emissions and energy costs by using the PRO version.")
 
-st.write("### Si quieres conocer como puedes lograr estos beneficios, agenda una cita en nuestra página web (https://pungoapp.com/) para guiarte en el proceso y recibir asesoria de nuestros expertos.")
+
+st.write("### If you want to know how you can achieve these benefits, schedule an appointment to guide you through the process and receive advice from our experts.")
+
+st.button('Schedule an appointment',link='https://calendly.com/pungo_szapata/meeting')
 
 # contact_form = """
 # <form action="https://formsubmit.co/zapaz.consultores@gmail.com" method="POST">
