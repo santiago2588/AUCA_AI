@@ -23,4 +23,4 @@ image = Image.open('Resources/logo_Pungo.png')
 st.image(image)
 
 st.write("# DIGITALIZATION WITH POSITIVE IMPACT")
-st.write("### Welcome to AUCA: la herramienta digital para la gestión de la energía y las emisiones de carbono en la industria")
+st.write("### Welcome to AUCA: the net-zero copilot for industrial SMEs")
