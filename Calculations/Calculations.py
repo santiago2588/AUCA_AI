@@ -106,7 +106,7 @@ process_hotspot_co2=results.groupby('ID proceso')['Emisiones kg CO2-eq'].sum().i
 process_hotspot_cost=results.groupby('ID proceso')['Costo energia USD'].sum().idxmax()
 process_hotspot_energy=results.groupby('ID proceso')['Contenido energia MJ'].sum().idxmax()
 
-results_process_filtered = results[results['ID proceso'] == process_hotspot_co2]
+#results_process_filtered = results[results['ID proceso'] == process_hotspot_co2]
 
 #results_process=pd.concat([co2_total_process,costo_total_process,energy_total_process],axis=1)
 #process_hotspot_co2=(results.loc[results['Emisiones kg CO2-eq'].idxmax(),'ID proceso']
