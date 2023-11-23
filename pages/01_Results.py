@@ -122,45 +122,20 @@ with st.expander('Contribución costos de energia',expanded=True):
         st.plotly_chart(fig_process, use_container_width=True,config=config)
 
 with st.expander("Prediccion emisiones y costos",expanded=True):
-    #To try Prophet model:
-    #https://towardsdatascience.com/deploying-a-prophet-forecasting-model-with-streamlit-to-heroku-caf1729bd917
-    #https://github.com/edkrueger/covid-forecast/blob/master/app/app.py
-
-    data_emisiones=results_time.drop(['Costo energia USD','Fecha'],axis=1)
-    data_costos=results_time.drop(['Emisiones kg CO2-eq','Fecha'],axis=1)
-
-    #Estos parametros se los debe optimizar. Los que estan aqui no son los optimos
-    order=(5,1,20)
-
-    def fit_arima(data,order):
-        model=ARIMA(data, order=order)
-        model_fit=model.fit()
-        forecast=model_fit.forecast(steps=15)
-        return forecast
 
     tab1, tab2=st.tabs(['Prediccion Emisiones','Prediccion Costos'])
 
     with tab1:
-        forecast_emisiones=fit_arima(data_emisiones,order)
-        results_pred_emisiones=pd.concat([data_emisiones,forecast_emisiones], axis=1)
+
         fig_emisiones=px.line(results_pred_emisiones, y=["Emisiones kg CO2-eq","predicted_mean"],markers=True,line_shape='spline')
         st.plotly_chart(fig_emisiones,use_container_width=True,config=config)
 
     with tab2:
-        forecast_costos=fit_arima(data_costos,order)
-        results_pred_costos=pd.concat([data_costos,forecast_costos], axis=1)
+
         fig_costos=px.line(results_pred_costos, y=['Costo energia USD',"predicted_mean"],markers=True,line_shape='spline')
         st.plotly_chart(fig_costos,use_container_width=True,config=config)
 
 with st.expander("Optimizar emisiones y costos",expanded=True):
-
-    co2_reduced=emissions_total*0.1
-    co2_new=emissions_total*0.9
-    #Se asume que un árbol almacena unos 167 kg de CO2 al año https://climate.selectra.com/es/actualidad/co2-arbol
-    arboles=co2_reduced/167
-
-    cost_reduced=cost_total*0.1
-    cost_new=cost_total*0.9
 
     tab1, tab2=st.tabs(['Emisiones','Costos'])
 
@@ -186,12 +161,6 @@ with st.expander("Optimizar emisiones y costos",expanded=True):
 
 with st.expander('Personalized Advice',expanded=True):
 
-    emissions_total=np.sum(results['Emisiones kg CO2-eq'])
-    cost_total=np.sum(results['Costo energia USD'])
-    energy_total=np.sum(results['Contenido energia MJ'])
-    prod_total=np.sum(df_prod_mod['Produccion'])
-
-    import streamlit as st
     from langchain.llms import OpenAI
     openai_api_key = st.text_input('OpenAI API Key')
 
