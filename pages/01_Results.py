@@ -21,7 +21,7 @@ st.image(image)
 st.markdown("# The Net-Zero copilot for industrial SMEs")
 
 st.write("This example presents the results when processing the database hosted in Google Sheets.")
-st.link_button(label='Access the database',url='https://docs.google.com/spreadsheets/d/1FB-lPd8usv_XpFNSm0t4W6C7ogdcHIO1FuJZ2Dmvm_4/edit#gid=1930401626')
+st.link_button(label='Access the database',url=url)
 
 st.markdown("## Results")
 
@@ -130,6 +130,8 @@ with st.expander("Prediccion emisiones y costos",expanded=True):
 
         fig_costos=px.line(results_pred_costos, y=['Costo energia USD',"predicted_mean"],markers=True,line_shape='spline')
         st.plotly_chart(fig_costos,use_container_width=True,config=config)
+
+    st.dataframe(co2_total_process)
 
 with st.expander("Optimizar emisiones y costos",expanded=True):
 
