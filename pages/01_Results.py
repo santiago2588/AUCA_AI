@@ -1,13 +1,8 @@
-import streamlit as st
-from streamlit_gsheets import GSheetsConnection
-import pandas as pd
-import numpy as np
 import plotly.express as px
-from statsmodels.tsa.arima.model import ARIMA
 from langchain.llms import OpenAI
 from Calculations.Calculations import *
 
-#st.set_page_config(layout="wide",page_title="AUCA",page_icon="🌿")
+st.set_page_config(layout="wide",page_title="AUCA",page_icon="🌿")
 
 #Codigo para eliminar el boton de menu y logo de streamlit
 # hide_menu_style = """

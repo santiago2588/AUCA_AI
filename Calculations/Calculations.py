@@ -26,13 +26,6 @@ df_prod['fecha'] = pd.to_datetime(df_prod['fecha'])
 df_prod_mod=df_prod.rename(columns={'fecha':'Fecha','produccion':'Produccion','unidad':'Unidad'})
 unit=df_prod_mod._get_value(1,'Unidad')
 
-# st.markdown("## Datos ingresados")
-# tab1,tab2=st.tabs(['Consumos de energía','Producción de la planta'])
-# with tab1:
-#     st.dataframe(df_equip_mod)
-# with tab2:
-#     st.dataframe(df_prod_mod)
-
 #Obtener listado de procesos, equipos, combustibles, y consumos
 process_list=df_equip['id_proceso'].tolist()
 equipment_list=df_equip['id_equipo'].tolist()
@@ -47,7 +40,6 @@ df3=[]
 df4=[]
 
 #Calculo de las emisiones de carbono
-#@st.cache_data
 def emission(fuel,consumption):
     fuel_name=df.loc[df["fuente_energia"] == i,'fuente_energia']
     heat_content = df.loc[df["fuente_energia"]==i,'valor_calorifico']
