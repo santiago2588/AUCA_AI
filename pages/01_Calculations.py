@@ -282,7 +282,7 @@ with st.expander("Optimizar emisiones y costos",expanded=True):
         with col2:
             st.metric('Costos optimizados',str("%.1f" % np.float_(cost_new))+ ' USD',delta=str("%.1f" % np.float_(-cost_reduced))+ ' USD', delta_color='inverse' )
 
-with st.expander('Acciones simples para reducir energia y emisiones',expanded=True):
+with st.expander('Personalized Advice',expanded=True):
 
     tab1, tab2=st.tabs(['Bombas','Calderos'])
 
