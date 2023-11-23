@@ -102,9 +102,9 @@ prod_diaria=df_prod_mod.groupby('Fecha')['Produccion'].sum()
 energy_int_total=results.groupby('Fecha')['Contenido energia MJ'].sum()
 
 #Hotspot identification
-process_hotspot_co2=results.groupby('ID proceso')['Emisiones kg CO2-eq'].sum().idmax()
-process_hotspot_cost=results.groupby('ID proceso')['Costo energia USD'].sum().idmax()
-process_hotspot_energy=results.groupby('ID proceso')['Contenido energia MJ'].sum().idmax()
+process_hotspot_co2=results.groupby('ID proceso')['Emisiones kg CO2-eq'].sum().idxmax()
+process_hotspot_cost=results.groupby('ID proceso')['Costo energia USD'].sum().idxmax()
+process_hotspot_energy=results.groupby('ID proceso')['Contenido energia MJ'].sum().idxmax()
 
 results_process_filtered = results[results['ID proceso'] == process_hotspot_co2]
 
