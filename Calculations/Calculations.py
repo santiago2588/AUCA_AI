@@ -3,7 +3,6 @@ from streamlit_gsheets import GSheetsConnection
 import pandas as pd
 import numpy as np
 from statsmodels.tsa.arima.model import ARIMA
-from Calculations.Calculations import *
 
 url="https://docs.google.com/spreadsheets/d/1FB-lPd8usv_XpFNSm0t4W6C7ogdcHIO1FuJZ2Dmvm_4/edit?usp=sharing"
 

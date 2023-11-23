@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 import plotly.express as px
 from statsmodels.tsa.arima.model import ARIMA
+from langchain.llms import OpenAI
 from Calculations.Calculations import *
 
 #st.set_page_config(layout="wide",page_title="AUCA",page_icon="🌿")
@@ -160,8 +161,6 @@ with st.expander("Optimizar emisiones y costos",expanded=True):
             st.metric('Costos optimizados',str("%.1f" % np.float_(cost_new))+ ' USD',delta=str("%.1f" % np.float_(-cost_reduced))+ ' USD', delta_color='inverse' )
 
 with st.expander('Personalized Advice',expanded=True):
-
-    from langchain.llms import OpenAI
     openai_api_key = st.text_input('OpenAI API Key')
 
     def generate_response(input_text):
@@ -172,6 +171,7 @@ with st.expander('Personalized Advice',expanded=True):
         st.warning('Please enter your OpenAI API key!', icon='⚠')
     if submitted and openai_api_key.startswith('sk-'):
         generate_response(text)
+
 
     st.success(""" 
     Felicitaciones, has reducido tus emisiones de carbono y los costos energeticos y ahora tu planta es mas rentable y eficiente!
