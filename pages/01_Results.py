@@ -132,6 +132,7 @@ with st.expander("Prediccion emisiones y costos",expanded=True):
         st.plotly_chart(fig_costos,use_container_width=True,config=config)
 
     st.dataframe(co2_total_process)
+    st.write(f'The process with the highest CO2 emissions is: {process_hotspot_co2}')
 
 with st.expander("Optimizar emisiones y costos",expanded=True):
 
