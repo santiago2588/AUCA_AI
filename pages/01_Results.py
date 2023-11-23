@@ -133,7 +133,7 @@ with st.expander("Prediccion emisiones y costos",expanded=True):
 
     st.dataframe(co2_total_process)
     st.write(results_process)
-    #st.write(f'The process with the highest CO2 emissions is: {process_hotspot_co2}')
+    st.write(f'The process with the highest CO2 emissions is: {process_hotspot_co2}')
 
 with st.expander("Optimizar emisiones y costos",expanded=True):
 
