@@ -284,31 +284,21 @@ with st.expander("Optimizar emisiones y costos",expanded=True):
 
 with st.expander('Personalized Advice',expanded=True):
 
-    tab1, tab2=st.tabs(['Bombas','Calderos'])
+    import streamlit as st
+    from langchain.llms import OpenAI
+    openai_api_key = st.text_input('OpenAI API Key')
 
-    with tab1:
-        st.markdown(
-            """
-            - Seleccionar la bomba adecuada en función del flujo y la cabeza de la bomba puede mejorar la eficiencia energética. Si la bomba es demasiado grande para la aplicación, puede consumir más energía de lo necesario. 
-            - La instalación de un variador de frecuencia puede ajustar la velocidad de la bomba en función de la demanda. Esto puede reducir significativamente el consumo de energía.
-            - Asegurarse de que la tubería esté correctamente dimensionada para la bomba y evitar curvas y codos innecesarios en la tubería puede reducir la resistencia al flujo y mejorar la eficiencia energética.
-            - Ajustar la presión de la bomba a los niveles óptimos puede ayudar a reducir el consumo de energía.
-            - Mantener la bomba limpia y en buen estado de funcionamiento es clave para mejorar la eficiencia energética. Asegúrese de realizar el mantenimiento programado, como limpieza, lubricación y ajustes.
-            - Capacitar al personal en el uso adecuado de las bombas y en la identificación de problemas de eficiencia energética
-            """
-        )
+    def generate_response(input_text):
+        llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
+        st.info(llm(input_text))
 
-    with tab2:
-        st.markdown(
-            """
-            - Realizar un mantenimiento regular de la caldera, como limpieza, lubricación y ajustes, es clave para mejorar la eficiencia energética. 
-            - Ajustar la relación aire-combustible para lograr una combustión completa y eficiente.
-            - Utilizar aislamiento térmico en la caldera y en las tuberías de distribución de vapor puede reducir las pérdidas de calor.
-            - La instalación de un economizador de recuperación de calor puede recuperar el calor de los gases de escape de la caldera y utilizarlo para precalentar el agua de alimentación de la caldera.
-            - Optimizar el tiempo de procesamiento del horno puede ayudar a reducir el consumo de energía.
-            - Capacitar al personal en el uso adecuado de la caldera y en la identificación de problemas de eficiencia energética.
-            """
-        )
+    with st.form('my_form'):
+        text = st.text_area('Enter text:', 'What is the scope of a carbon footprint analysis?')
+        submitted = st.form_submit_button('Submit')
+        if not openai_api_key.startswith('sk-'):
+            st.warning('Please enter your OpenAI API key!', icon='⚠')
+        if submitted and openai_api_key.startswith('sk-'):
+            generate_response(text)
 
     st.success(""" 
     Felicitaciones, has reducido tus emisiones de carbono y los costos energeticos y ahora tu planta es mas rentable y eficiente!
