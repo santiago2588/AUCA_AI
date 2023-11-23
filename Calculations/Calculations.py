@@ -106,15 +106,13 @@ process_hotspot_co2=results.groupby('ID proceso')['Emisiones kg CO2-eq'].sum().i
 process_hotspot_cost=results.groupby('ID proceso')['Costo energia USD'].sum().idxmax()
 process_hotspot_energy=results.groupby('ID proceso')['Contenido energia MJ'].sum().idxmax()
 
-equipment_hotspot_co2=results.groupby('ID equipo')['Emisiones kg CO2-eq'].sum().idxmax()
-equipment_hotspot_cost=results.groupby('ID equipo')['Costo energia USD'].sum().idxmax()
-equipment_hotspot_energy=results.groupby('ID equipo')['Contenido energia MJ'].sum().idxmax()
+equipment_hotspot_co2=results_process_co2.groupby('ID equipo')['Emisiones kg CO2-eq'].sum().idxmax()
+equipment_hotspot_cost=results_process_cost.groupby('ID equipo')['Costo energia USD'].sum().idxmax()
+equipment_hotspot_energy=results_process_energy.groupby('ID equipo')['Contenido energia MJ'].sum().idxmax()
 
 fuel_hotspot_co2=results.groupby('Fuente energia')['Emisiones kg CO2-eq'].sum().idxmax()
 fuel_hotspot_cost=results.groupby('Fuente energia')['Costo energia USD'].sum().idxmax()
 fuel_hotspot_energy=results.groupby('Fuente energia')['Contenido energia MJ'].sum().idxmax()
-
-#results_process_filtered = results[results['ID proceso'] == process_hotspot_co2]
 
 #Prediction model
 

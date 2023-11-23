@@ -132,7 +132,7 @@ with st.expander("Prediccion emisiones y costos",expanded=True):
         st.plotly_chart(fig_costos,use_container_width=True,config=config)
 
     #st.write(results_process)
-    st.write(f'The process with the highest CO2 emissions is: {process_hotspot_co2}')
+    st.write(f'The process with the highest CO2 emissions is: {process_hotspot_co2}, with a value of: {}')
     st.write(f'The equipment with the highest CO2 emissions is: {equipment_hotspot_co2}')
     st.write(f'The energy source with the highest CO2 emissions is: {fuel_hotspot_co2}')
 
