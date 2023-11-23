@@ -109,24 +109,25 @@ cost.columns=['Costo energia USD']
 fuel_energy=pd.DataFrame(df4)
 fuel_energy.columns=['Contenido energia MJ']
 
+results=pd.concat([date,process_name,equipment_name,fuel_name,co2,scope,cost,fuel_energy],axis='columns')
+#results.set_index('ID proceso',inplace=True)
+
+#Resultados totales
+emissions_total=np.sum(results['Emisiones kg CO2-eq'])
+cost_total=np.sum(results['Costo energia USD'])
+energy_total=np.sum(results['Contenido energia MJ'])
+prod_total=np.sum(df_prod_mod['Produccion'])
+
+#Resultados por tiempo
+co2_total_time=results.groupby('Fecha')['Emisiones kg CO2-eq'].sum()
+costo_total_time=results.groupby('Fecha')['Costo energia USD'].sum()
+
+results_time=pd.concat([co2_total_time,costo_total_time],axis=1)
+results_time['Fecha']=results_time.index
+
 st.markdown("## Results")
 
 with st.expander("Total costs and emissions",expanded=True):
-    results=pd.concat([date,process_name,equipment_name,fuel_name,co2,scope,cost,fuel_energy],axis='columns')
-    #results.set_index('ID proceso',inplace=True)
-
-    #Resultados totales
-    emissions_total=np.sum(results['Emisiones kg CO2-eq'])
-    cost_total=np.sum(results['Costo energia USD'])
-    energy_total=np.sum(results['Contenido energia MJ'])
-    prod_total=np.sum(df_prod_mod['Produccion'])
-
-    #Resultados por tiempo
-    co2_total_time=results.groupby('Fecha')['Emisiones kg CO2-eq'].sum()
-    costo_total_time=results.groupby('Fecha')['Costo energia USD'].sum()
-
-    results_time=pd.concat([co2_total_time,costo_total_time],axis=1)
-    results_time['Fecha']=results_time.index
 
     col1,col2=st.columns(2)
 
@@ -284,6 +285,11 @@ with st.expander("Optimizar emisiones y costos",expanded=True):
 
 with st.expander('Personalized Advice',expanded=True):
 
+    emissions_total=np.sum(results['Emisiones kg CO2-eq'])
+    cost_total=np.sum(results['Costo energia USD'])
+    energy_total=np.sum(results['Contenido energia MJ'])
+    prod_total=np.sum(df_prod_mod['Produccion'])
+
     import streamlit as st
     from langchain.llms import OpenAI
     openai_api_key = st.text_input('OpenAI API Key')
@@ -292,13 +298,10 @@ with st.expander('Personalized Advice',expanded=True):
         llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
         st.info(llm(input_text))
 
-    with st.form('my_form'):
-        text = st.text_area('Enter text:', 'What is the scope of a carbon footprint analysis?')
-        submitted = st.form_submit_button('Submit')
-        if not openai_api_key.startswith('sk-'):
-            st.warning('Please enter your OpenAI API key!', icon='⚠')
-        if submitted and openai_api_key.startswith('sk-'):
-            generate_response(text)
+    if not openai_api_key.startswith('sk-'):
+        st.warning('Please enter your OpenAI API key!', icon='⚠')
+    if submitted and openai_api_key.startswith('sk-'):
+        generate_response(text)
 
     st.success(""" 
     Felicitaciones, has reducido tus emisiones de carbono y los costos energeticos y ahora tu planta es mas rentable y eficiente!
