@@ -111,9 +111,6 @@ energy_int_total=results.groupby('Fecha')['Contenido energia MJ'].sum()
 #process_hotspot_costo=results_process.loc[results_process['Costo energia USD'].idxmax(),'ID proceso']
 #process_hotspot_energy=results_process.loc[results_process['Contenido energia MJ'].idxmax(),'ID proceso']
 
-process_hotspot_co2=results.loc[results['Emisiones kg CO2-eq'].idxmax(), 'ID proceso']
-results_filtered = results[results['ID proceso'] == process_hotspot_co2]
-
 #Prediction model
 #To try Prophet model:
 #https://towardsdatascience.com/deploying-a-prophet-forecasting-model-with-streamlit-to-heroku-caf1729bd917
