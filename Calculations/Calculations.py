@@ -101,3 +101,8 @@ costo_total_time=results.groupby('Fecha')['Costo energia USD'].sum()
 
 results_time=pd.concat([co2_total_time,costo_total_time],axis=1)
 results_time['Fecha']=results_time.index
+
+co2_total=results.groupby('Fecha')['Emisiones kg CO2-eq'].sum()
+prod_diaria=df_prod_mod.groupby('Fecha')['Produccion'].sum()
+
+energy_int_total=results.groupby('Fecha')['Contenido energia MJ'].sum()

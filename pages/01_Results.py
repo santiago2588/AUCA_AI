@@ -75,14 +75,13 @@ with st.expander('Indicadores por unidad de producción',expanded=True):
     tab1,tab2=st.tabs(['Intensidad emisiones','Intensidad energetica'])
 
     with tab1:
-        co2_total=results.groupby('Fecha')['Emisiones kg CO2-eq'].sum()
-        prod_diaria=df_prod_mod.groupby('Fecha')['Produccion'].sum()
+
         fig_total=px.line(results,x=date.unique(),y=co2_total/prod_diaria,markers=True,line_shape='spline')
         fig_total.update_layout(xaxis_title='Fecha',yaxis_title='kg CO2-eq / '+unit)
         st.plotly_chart(fig_total, use_container_width=True,config=config)
 
     with tab2:
-        energy_int_total=results.groupby('Fecha')['Contenido energia MJ'].sum()
+
         fig_total=px.line(results,x=date.unique(),y=energy_int_total/prod_diaria,markers=True,line_shape='spline')
         fig_total.update_layout(xaxis_title='Fecha',yaxis_title='MJ / '+unit)
         st.plotly_chart(fig_total, use_container_width=True,config=config)
