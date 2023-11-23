@@ -107,7 +107,7 @@ costo_total_process=results.groupby('ID proceso')['Costo energia USD'].sum()
 energy_total_process=results.groupby('ID proceso')['Contenido energia MJ'].sum()
 
 results_process=pd.concat([co2_total_process,costo_total_process,energy_total_process],axis=1)
-process_hotspot_co2=results_process.loc[results_process['Emisiones kg CO2-eq'].idxmax(),'ID proceso']
+process_hotspot_co2=results_process.loc[results_process['Emisiones kg CO2-eq'].idxmax(),results_process['ID proceso']]
 #process_hotspot_costo=results_process.loc[results_process['Costo energia USD'].idxmax(),'ID proceso']
 #process_hotspot_energy=results_process.loc[results_process['Contenido energia MJ'].idxmax(),'ID proceso']
 
