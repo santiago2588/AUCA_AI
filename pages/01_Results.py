@@ -2,7 +2,7 @@ import plotly.express as px
 from langchain.llms import OpenAI
 from Calculations.Calculations import *
 
-st.set_page_config(layout="wide",page_title="AUCA",page_icon="🌿")
+#st.set_page_config(layout="wide",page_title="AUCA",page_icon="🌿")
 
 #Codigo para eliminar el boton de menu y logo de streamlit
 # hide_menu_style = """
