@@ -133,6 +133,8 @@ with st.expander("Prediccion emisiones y costos",expanded=True):
 
     #st.write(results_process)
     st.write(f'The process with the highest CO2 emissions is: {process_hotspot_co2}')
+    st.write(f'The equipment with the highest CO2 emissions is: {equipment_hotspot_co2}')
+    st.write(f'The energy source with the highest CO2 emissions is: {fuel_hotspot_co2}')
 
 with st.expander("Optimizar emisiones y costos",expanded=True):
 
