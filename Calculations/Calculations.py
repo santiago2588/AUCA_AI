@@ -81,6 +81,7 @@ fuel_energy=pd.DataFrame(df4)
 fuel_energy.columns=['Contenido energia MJ']
 
 results=pd.concat([date,process_name,equipment_name,fuel_name,co2,scope,cost,fuel_energy],axis='columns')
+results=results.to_frame()
 #results.set_index('ID proceso',inplace=True)
 
 #Resultados totales
