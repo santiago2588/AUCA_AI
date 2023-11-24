@@ -170,12 +170,20 @@ with st.expander('Personalized Advice',expanded=True):
         llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
         st.info(llm(input_text))
 
-    prompt=f'The {process_hotspot_co2}, {equipment_hotspot_co2},{fuel_hotspot_co2} are currently the highest carbon emitters. Help me to identify practical and relevant improvement opportunities to reduce the CO2 emissions'
+    prompt_hotspot_co2=f'The {process_hotspot_co2}, {equipment_hotspot_co2},{fuel_hotspot_co2} are currently the highest carbon emitters. Help me to identify the top 5 improvement opportunities (practical and relevant) to reduce the CO2 emissions'
+    prompt_hotspot_cost=f'The {process_hotspot_cost}, {equipment_hotspot_cost},{fuel_hotspot_cost} have currently the highest energy costs. Help me to identify the top 5 improvement opportunities (practical and relevant) to reduce the energy costs'
+    prompt_action_plan=f' The {process_hotspot_co2}, {equipment_hotspot_co2},{fuel_hotspot_co2} are currently the highest carbon emitters. Help me to generate a climate strategy with Reduction Targets and Indicators'
 
     if not openai_api_key.startswith('sk-'):
         st.warning('Please enter your OpenAI API key!', icon='⚠')
     if openai_api_key.startswith('sk-'):
-        generate_response(prompt)
+        tab1, tab2,tab3=st.tabs(['Improvement opportunities: CO2 emissions','Improvement opportunities: Costs','Action plan'])
+        with tab1:
+            generate_response(prompt_hotspot_co2)
+        with tab2:
+            generate_response(prompt_hotspot_cost)
+        with tab3:
+            generate_response(prompt_action_plan)
 
 
     st.success(""" 
