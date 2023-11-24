@@ -17,13 +17,19 @@ if not openai_api_key.startswith('sk-'):
 if openai_api_key.startswith('sk-'):
     tab1, tab2=st.tabs(['Improvement opportunities','Action plan'])
     with tab1:
-        response=generate_response(prompt_opportunities)
+        generate_response(prompt_opportunities)
     with tab2:
-        response=generate_response(prompt_action_plan)
+        generate_response(prompt_action_plan)
 
 # Assume 'response' is the response object from the OpenAI API
-
+response = generate_response(prompt_opportunities)
 if response['choices'][0]['finish_reason'] == 'length':
+    st.write("The response is incomplete.")
+else:
+    st.write("The response is complete.")
+
+response_1 = generate_response(prompt_action_plan)
+if response_1['choices'][0]['finish_reason'] == 'length':
     st.write("The response is incomplete.")
 else:
     st.write("The response is complete.")
