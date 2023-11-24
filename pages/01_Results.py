@@ -84,6 +84,10 @@ with st.expander('Indicators por production unit',expanded=True):
 
 with st.expander('Hotspot analysis: CO2 emissions',expanded=True):
 
+    st.write(f'The process with the highest CO2 emissions is: {process_hotspot_co2}')
+    st.write(f'The equipment with the highest CO2 emissions is: {equipment_hotspot_co2}')
+    st.write(f'The energy source with the highest CO2 emissions is: {fuel_hotspot_co2}')
+
     tab1, tab2, tab3 = st.tabs(["Energy source", "Equipment", "Process"])
 
     with tab1:
@@ -102,6 +106,10 @@ with st.expander('Hotspot analysis: CO2 emissions',expanded=True):
         st.plotly_chart(fig_process, use_container_width=True,config=config)
 
 with st.expander('Hotspot analysis: Energy costs',expanded=True):
+
+    st.write(f'The process with the highest energy costs is: {process_hotspot_cost}')
+    st.write(f'The equipment with the highest energy costs is: {equipment_hotspot_cost}')
+    st.write(f'The energy source with the highest energy costs is: {fuel_hotspot_cost}')
 
     tab1, tab2, tab3 = st.tabs(["Energy source", "Equipment", "Process"])
 
@@ -130,11 +138,6 @@ with st.expander("Prediction of CO2 emissions and energy costs",expanded=True):
 
         fig_costos=px.line(results_pred_costos, y=['Energy costs USD',"predicted_mean"],markers=True,line_shape='spline')
         st.plotly_chart(fig_costos,use_container_width=True,config=config)
-
-    #st.write(results_process)
-    st.write(f'The process with the highest CO2 emissions is: {process_hotspot_co2}')
-    st.write(f'The equipment with the highest CO2 emissions is: {equipment_hotspot_co2}')
-    st.write(f'The energy source with the highest CO2 emissions is: {fuel_hotspot_co2}')
 
 with st.expander("CO2 emissions and energy costs optimization",expanded=True):
 
