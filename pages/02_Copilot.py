@@ -20,7 +20,7 @@ if openai_api_key.startswith('sk-'):
         generate_response(prompt_action_plan)
 
 # Assume 'response' is the response object from the OpenAI API
-if generate_response()['choices'][0]['finish_reason'] == 'length':
+if generate_response['choices'][0]['finish_reason'] == 'length':
     st.write("The response is incomplete.")
 else:
     st.write("The response is complete.")
