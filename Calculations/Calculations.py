@@ -15,23 +15,23 @@ df=conn.read(spreadsheet=url, worksheet='1930401626', ttl="1m")
 
 df_equip = conn.read(spreadsheet=url,worksheet="324598336",ttl="1m")
 
-df_equip['fecha'] = pd.to_datetime(df_equip['fecha'])
+df_equip['date'] = pd.to_datetime(df_equip['date'])
 
-df_equip=df_equip.sort_values(['fecha','fuente_energia'],ascending=[True,True])
-df_equip_mod=df_equip.rename(columns={'fecha':'Fecha','id_proceso':'ID proceso','id_equipo':'ID equipo','fuente_energia':'Fuente energia','consumo':'Consumo','unidad_consumo':'Unidad'})
+df_equip=df_equip.sort_values(['date','energy_source'],ascending=[True,True])
+df_equip_mod=df_equip.rename(columns={'date':'Date','id_process':'ID process','id_equipment':'ID equipment','energy_source':'Energy source','consumption':'Consumption','consumption_unit':'Unit'})
 
 df_prod=conn.read(spreadsheet=url,worksheet="1391049495",ttl="1m")
-df_prod['fecha'] = pd.to_datetime(df_prod['fecha'])
+df_prod['date'] = pd.to_datetime(df_prod['date'])
 #df_prod=df_prod.sort_values(['fecha'],ascending=[True])
 
-df_prod_mod=df_prod.rename(columns={'fecha':'Fecha','produccion':'Produccion','unidad':'Unidad'})
-unit=df_prod_mod._get_value(1,'Unidad')
+df_prod_mod=df_prod.rename(columns={'date':'Date','production':'Production','unit':'Unit'})
+unit=df_prod_mod._get_value(1,'Unit')
 
 #Obtener listado de procesos, equipos, combustibles, y consumos
-process_list=df_equip['id_proceso'].tolist()
-equipment_list=df_equip['id_equipo'].tolist()
-fuel_list=df_equip['fuente_energia'].tolist()
-consumption_list=df_equip['consumo'].tolist()
+process_list=df_equip['id_process'].tolist()
+equipment_list=df_equip['id_equipment'].tolist()
+fuel_list=df_equip['energy_source'].tolist()
+consumption_list=df_equip['consumption'].tolist()
 
 #Dataframes para guardar los resultados
 df0=[]
@@ -42,12 +42,12 @@ df4=[]
 
 #Calculo de las emisiones de carbono
 def emission(fuel,consumption):
-    fuel_name=df.loc[df["fuente_energia"] == i,'fuente_energia']
-    heat_content = df.loc[df["fuente_energia"]==i,'valor_calorifico']
-    emission_factor = df.loc[df["fuente_energia"]==i,'factor_emision']
-    fuel_cost = df.loc[df["fuente_energia"]==i,'costo_unitario']
-    fuel_calor = df.loc[df["fuente_energia"]==i,'contenido_energia']
-    scope = df.loc[df["fuente_energia"]==i,'alcance_emisiones']
+    fuel_name=df.loc[df["energy_source"] == i,'energy_source']
+    heat_content = df.loc[df["energy_source"]==i,'calorific_value']
+    emission_factor = df.loc[df["energy_source"]==i,'emission_factor']
+    fuel_cost = df.loc[df["energy_source"]==i,'cost_unit']
+    fuel_calor = df.loc[df["energy_source"]==i,'energy_content']
+    scope = df.loc[df["energy_source"]==i,'emission_scope']
     co2=j*heat_content*emission_factor
     cost=j*fuel_cost
     energy=j*fuel_calor
@@ -63,56 +63,56 @@ for i,j in zip(fuel_list,consumption_list):
     df3.extend(cost)
     df4.extend(energy)
 
-date=df_equip_mod['Fecha']
+date=df_equip_mod['Date']
 date=pd.to_datetime(date)
 process_name=pd.DataFrame(process_list)
-process_name.columns=['ID proceso']
+process_name.columns=['ID process']
 equipment_name=pd.DataFrame(equipment_list)
-equipment_name.columns=['ID equipo']
+equipment_name.columns=['ID equipment']
 fuel_name=pd.DataFrame(df0)
-fuel_name.columns=['Fuente energia']
+fuel_name.columns=['Energy source']
 co2=pd.DataFrame(df1)
-co2.columns=['Emisiones kg CO2-eq']
+co2.columns=['Emissions kg CO2-eq']
 scope=pd.DataFrame(df2)
-scope.columns=['Alcance emisiones']
+scope.columns=['Emission Scope']
 cost=pd.DataFrame(df3)
-cost.columns=['Costo energia USD']
+cost.columns=['Energy costs USD']
 fuel_energy=pd.DataFrame(df4)
-fuel_energy.columns=['Contenido energia MJ']
+fuel_energy.columns=['Energy content MJ']
 
 results=pd.concat([date,process_name,equipment_name,fuel_name,co2,scope,cost,fuel_energy],axis='columns')
 #results.set_index('ID proceso',inplace=True)
 
 #Resultados totales
-emissions_total=np.sum(results['Emisiones kg CO2-eq'])
-cost_total=np.sum(results['Costo energia USD'])
-energy_total=np.sum(results['Contenido energia MJ'])
-prod_total=np.sum(df_prod_mod['Produccion'])
+emissions_total=np.sum(results['Emissions kg CO2-eq'])
+cost_total=np.sum(results['Energy costs USD'])
+energy_total=np.sum(results['Energy content MJ'])
+prod_total=np.sum(df_prod_mod['Production'])
 
 #Resultados por tiempo
-co2_total_time=results.groupby('Fecha')['Emisiones kg CO2-eq'].sum()
-costo_total_time=results.groupby('Fecha')['Costo energia USD'].sum()
+co2_total_time=results.groupby('Date')['Emissions kg CO2-eq'].sum()
+costo_total_time=results.groupby('Date')['Energy costs USD'].sum()
 
 results_time=pd.concat([co2_total_time,costo_total_time],axis=1)
-results_time['Fecha']=results_time.index
+results_time['Date']=results_time.index
 
-co2_total=results.groupby('Fecha')['Emisiones kg CO2-eq'].sum()
-prod_diaria=df_prod_mod.groupby('Fecha')['Produccion'].sum()
+co2_total=results.groupby('Date')['Emissions kg CO2-eq'].sum()
+prod_diaria=df_prod_mod.groupby('Date')['Production'].sum()
 
-energy_int_total=results.groupby('Fecha')['Contenido energia MJ'].sum()
+energy_int_total=results.groupby('Date')['Energy content MJ'].sum()
 
 #Hotspot identification
-process_hotspot_co2=results.groupby('ID proceso')['Emisiones kg CO2-eq'].sum().idxmax()
-process_hotspot_cost=results.groupby('ID proceso')['Costo energia USD'].sum().idxmax()
-process_hotspot_energy=results.groupby('ID proceso')['Contenido energia MJ'].sum().idxmax()
+process_hotspot_co2=results.groupby('ID process')['Emissions kg CO2-eq'].sum().idxmax()
+process_hotspot_cost=results.groupby('ID process')['Energy costs USD'].sum().idxmax()
+process_hotspot_energy=results.groupby('ID process')['Energy content MJ'].sum().idxmax()
 
-equipment_hotspot_co2=results.groupby('ID equipo')['Emisiones kg CO2-eq'].sum().idxmax()
-equipment_hotspot_cost=results.groupby('ID equipo')['Costo energia USD'].sum().idxmax()
-equipment_hotspot_energy=results.groupby('ID equipo')['Contenido energia MJ'].sum().idxmax()
+equipment_hotspot_co2=results.groupby('ID equipment')['Emissions kg CO2-eq'].sum().idxmax()
+equipment_hotspot_cost=results.groupby('ID equipment')['Energy costs USD'].sum().idxmax()
+equipment_hotspot_energy=results.groupby('ID equipment')['Energy content MJ'].sum().idxmax()
 
-fuel_hotspot_co2=results.groupby('Fuente energia')['Emisiones kg CO2-eq'].sum().idxmax()
-fuel_hotspot_cost=results.groupby('Fuente energia')['Costo energia USD'].sum().idxmax()
-fuel_hotspot_energy=results.groupby('Fuente energia')['Contenido energia MJ'].sum().idxmax()
+fuel_hotspot_co2=results.groupby('Energy source')['Emissions kg CO2-eq'].sum().idxmax()
+fuel_hotspot_cost=results.groupby('Energy source')['Energy costs USD'].sum().idxmax()
+fuel_hotspot_energy=results.groupby('Energy source')['Energy content MJ'].sum().idxmax()
 
 #Prediction model
 
@@ -120,8 +120,8 @@ fuel_hotspot_energy=results.groupby('Fuente energia')['Contenido energia MJ'].su
 #https://towardsdatascience.com/deploying-a-prophet-forecasting-model-with-streamlit-to-heroku-caf1729bd917
 #https://github.com/edkrueger/covid-forecast/blob/master/app/app.py
 
-data_emisiones=results_time.drop(['Costo energia USD','Fecha'],axis=1)
-data_costos=results_time.drop(['Emisiones kg CO2-eq','Fecha'],axis=1)
+data_emisiones=results_time.drop(['Energy costs USD','Date'],axis=1)
+data_costos=results_time.drop(['Emissions kg CO2-eq','Date'],axis=1)
 
 #Estos parametros se los debe optimizar. Los que estan aqui no son los optimos
 order=(5,1,20)
