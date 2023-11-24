@@ -84,9 +84,9 @@ with st.expander('Indicators por production unit',expanded=True):
 
 with st.expander('Hotspot analysis: CO2 emissions',expanded=True):
 
-    st.write(f'The process with the highest CO2 emissions is: {process_hotspot_co2}')
-    st.write(f'The equipment with the highest CO2 emissions is: {equipment_hotspot_co2}')
-    st.write(f'The energy source with the highest CO2 emissions is: {fuel_hotspot_co2}')
+    st.markdown(f'- Process hotspot: {process_hotspot_co2}')
+    st.markdown(f'- Equipment hotspot: {equipment_hotspot_co2}')
+    st.markdown(f'- Energy source hotspot: {fuel_hotspot_co2}')
 
     tab1, tab2, tab3 = st.tabs(["Energy source", "Equipment", "Process"])
 
@@ -107,9 +107,9 @@ with st.expander('Hotspot analysis: CO2 emissions',expanded=True):
 
 with st.expander('Hotspot analysis: Energy costs',expanded=True):
 
-    st.markdown(f'- The process with the highest energy costs is: {process_hotspot_cost}')
-    st.markdown(f'- The equipment with the highest energy costs is: {equipment_hotspot_cost}')
-    st.markdown(f'- The energy source with the highest energy costs is: {fuel_hotspot_cost}')
+    st.markdown(f'- Process hotspot: {process_hotspot_cost}')
+    st.markdown(f'- Equipment hotspot: {equipment_hotspot_cost}')
+    st.markdown(f'- Energy source hotspot: {fuel_hotspot_cost}')
 
     tab1, tab2, tab3 = st.tabs(["Energy source", "Equipment", "Process"])
 
