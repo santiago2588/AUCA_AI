@@ -107,9 +107,9 @@ with st.expander('Hotspot analysis: CO2 emissions',expanded=True):
 
 with st.expander('Hotspot analysis: Energy costs',expanded=True):
 
-    st.markdown(f'-The process with the highest energy costs is: {process_hotspot_cost}')
-    st.markdown(f'-The equipment with the highest energy costs is: {equipment_hotspot_cost}')
-    st.markdown(f'-The energy source with the highest energy costs is: {fuel_hotspot_cost}')
+    st.markdown(f'- The process with the highest energy costs is: {process_hotspot_cost}')
+    st.markdown(f'- The equipment with the highest energy costs is: {equipment_hotspot_cost}')
+    st.markdown(f'- The energy source with the highest energy costs is: {fuel_hotspot_cost}')
 
     tab1, tab2, tab3 = st.tabs(["Energy source", "Equipment", "Process"])
 
