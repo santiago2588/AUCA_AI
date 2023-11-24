@@ -27,9 +27,9 @@ st.link_button(label='Schedule an appointment',url='https://calendly.com/pungo_s
 contact_form = """
 <form action="https://formsubmit.co/zapaz.consultores@gmail.com" method="POST">
      <input type="hidden" name="_captcha" value="false">
-     <input type="text" name="Nombre" placeholder="Tu nombre" required>
-     <input type="email" name="email" placeholder="Tu email" required>
-     <textarea name="message" placeholder="Tu mensaje"></textarea>
+     <input type="text" name="Name" placeholder="Your name" required>
+     <input type="email" name="email" placeholder="Your email" required>
+     <textarea name="Message" placeholder="Your message"></textarea>
      <button type="submit">Send</button>
 </form>
 """
