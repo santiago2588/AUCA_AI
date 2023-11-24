@@ -167,7 +167,7 @@ with st.expander('Personalized Advice',expanded=True):
     openai_api_key = st.text_input('OpenAI API Key')
 
     def generate_response(input_text):
-        llm = OpenAI(temperature=0.7, openai_api_key=openai_api_key)
+        llm = OpenAI(temperature=0.3, openai_api_key=openai_api_key)
         st.info(llm(input_text))
 
     prompt_opportunities=f'I want you to act as an energy and carbon emissions consultant with wide experience in the industry. The {process_hotspot_co2}, {equipment_hotspot_co2},{fuel_hotspot_co2} are currently the highest carbon emitters in my plant. Help me to identify the most relevant and easy-to-implement improvement opportunities to reduce the CO2 emissions'
