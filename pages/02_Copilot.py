@@ -21,19 +21,6 @@ if openai_api_key.startswith('sk-'):
     with tab2:
         generate_response(prompt_action_plan)
 
-# Assume 'response' is the response object from the OpenAI API
-response = generate_response(prompt_opportunities)
-if response['choices'][0]['finish_reason'] == 'length':
-    st.write("The response is incomplete.")
-else:
-    st.write("The response is complete.")
-
-response_1 = generate_response(prompt_action_plan)
-if response_1['choices'][0]['finish_reason'] == 'length':
-    st.write("The response is incomplete.")
-else:
-    st.write("The response is complete.")
-
 st.success(""" 
 Congratulations, you have reduced your carbon emissions and energy costs and now your plant is more profitable and efficient!
 
