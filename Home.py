@@ -27,7 +27,7 @@ st.write("# The net-zero copilot for industrial SMEs")
 st.markdown("""
     ### AUCA is a digital tool that allows you to calculate the carbon footprint (Scopes 1 and 2) in industrial operations, and the associated energy costs.""")
 
-image1 = Image.open('Resources/huella alcances.jpg')
+image1 = Image.open('Resources/emissions scope.jpg')
 st.image(image1)
 
 st.markdown('This tool also allows you to reduce your carbon emissions and energy costs based on the results obtained in the model\
