@@ -9,8 +9,8 @@ def generate_response(input_text):
     st.write(response)
     return response
 
-prompt_opportunities=f'I want you to act as an energy and carbon emissions consultant with wide experience in the industry. The equipment {equipment_hotspot_co2}, which belongs to the process {process_hotspot_co2}, is currently the highest carbon emitter in my plant, due to the use of the fuel {fuel_hotspot_co2}. I want you to identify the most relevant and easy-to-implement improvement opportunities to reduce the CO2 emissions.'
-prompt_action_plan=f'I want you to act as an energy and carbon emissions consultant with wide experience in the industry. The equipment {equipment_hotspot_co2}, which belongs to the process {process_hotspot_co2}, is currently the highest carbon emitter in my plant, due to the use of the fuel {fuel_hotspot_co2}. I want you to generate a professional and detailed climate strategy, including Reduction Targets and Indicators.'
+prompt_opportunities=f'I want you to act as an energy and carbon emissions consultant with wide experience in the industry. The equipment {equipment_hotspot_co2}, which belongs to the process {process_hotspot_co2}, is currently the highest carbon emitter in my plant, due to the use of the energy source {fuel_hotspot_co2}. I want you to identify the most relevant and easy-to-implement improvement opportunities to reduce the CO2 emissions, considering the process, equipment, and energy source points of view.'
+prompt_action_plan=f'I want you to act as an energy and carbon emissions consultant with wide experience in the industry. The equipment {equipment_hotspot_co2}, which belongs to the process {process_hotspot_co2}, is currently the highest carbon emitter in my plant, due to the use of the energy source {fuel_hotspot_co2}. I want you to generate a professional and detailed climate strategy, including Reduction Targets and Indicators, considering the process, equipment, and energy source points of view.'
 
 if not openai_api_key.startswith('sk-'):
     st.warning('Please enter your OpenAI API key!', icon='⚠')
