@@ -5,7 +5,7 @@ import numpy as np
 from statsmodels.tsa.arima.model import ARIMA
 
 #Base de datos que se procesa
-url="https://docs.google.com/spreadsheets/d/1FB-lPd8usv_XpFNSm0t4W6C7ogdcHIO1FuJZ2Dmvm_4/edit?usp=sharing"
+url="https://docs.google.com/spreadsheets/d/1fd_KYRl09ZFb23HBXLN8sIxEvmnuMhotgBDTRYqCBAk/edit?usp=sharing"
 
 # Create a connection object.
 conn = st.connection("gsheets", type=GSheetsConnection)
