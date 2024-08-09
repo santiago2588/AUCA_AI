@@ -14,14 +14,14 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 df=conn.read(spreadsheet=url, worksheet='1910628376', ttl="1m")
 
 df_equip = conn.read(spreadsheet=url,worksheet="1279293948",ttl="1m")
-df_equip['date'] = pd.to_datetime(df_equip['date'])
+df_equip['date'] = pd.to_datetime(df_equip['date'], format='%d/%m/%Y')
 df_equip['date'] = df_equip['date'].dt.date
 
 df_equip=df_equip.sort_values(['date','energy_source'],ascending=[True,True])
 df_equip_mod=df_equip.rename(columns={'date':'Date','id_process':'ID process','id_equipment':'ID equipment','energy_source':'Energy source','consumption':'Consumption','consumption_unit':'Unit'})
 
 df_prod=conn.read(spreadsheet=url,worksheet="929766433",ttl="1m")
-df_prod['date'] = pd.to_datetime(df_prod['date'])
+df_prod['date'] = pd.to_datetime(df_prod['date'],format='%d/%m/%Y')
 df_prod['date']=df_prod['date'].dt.date
 #df_prod=df_prod.sort_values(['date'],ascending=[True])
 
